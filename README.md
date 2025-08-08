@@ -35,9 +35,11 @@ This is a complete, full-stack e-commerce application built to demonstrate moder
 - Python 3.8+
 - Node.js & npm
 
-### 1. Backend Setup
+### Backend and frontend setup
 
 ```bash
+
+Backend setup:
 # Clone the repository and navigate into it
 git clone [https://github.com/swaroopaloor/pro-ecommerce.git](https://github.com/swaroopaloor/pro-ecommerce.git)
 cd pro-ecommerce/backend
@@ -62,3 +64,21 @@ npm install
 
 # Run the application
 npm run dev
+
+The backend will be running at http://127.0.0.1:8000.
+Access the interactive API documentation at http://127.0.0.1:8000/docs.
+
+
+Frontend Setup:
+
+
+# In a new terminal, navigate to the frontend directory
+cd pro-ecommerce/frontend
+
+# Install dependencies
+npm install
+
+# Run the application
+npm run dev
+The frontend will open automatically at http://localhost:5173 (or a similar port).
+
