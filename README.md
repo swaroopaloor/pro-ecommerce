@@ -1,6 +1,5 @@
 # Full-Stack E-commerce Platform
 
-![Project Screenshot](https://i.imgur.com/bLgBqK8.png)
 
 This is a complete, full-stack e-commerce application built to demonstrate modern web development practices. It features a high-performance FastAPI backend, a dynamic and responsive React frontend (built with Vite), and real-time WebSocket notifications for a polished user experience.
 
