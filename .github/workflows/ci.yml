@@ -1,0 +1,48 @@
+# .github/workflows/ci.yml
+
+# Name of our automated workflow, which will appear on GitHub
+name: Backend CI
+
+# This section defines WHEN the workflow should run.
+# We're telling it to run on every 'push' to the 'main' branch.
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# This section defines the actual JOBS to be done.
+jobs:
+  # We define a single job called 'build-and-test'
+  build-and-test:
+    # This specifies that the job will run on the latest version of Ubuntu (a Linux OS)
+    runs-on: ubuntu-latest
+
+    # These are the individual steps the job will perform in order
+    steps:
+    # Step 1: Check out the repository code
+    # This downloads your code into the virtual environment.
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up the Python environment
+    # This installs Python in the virtual machine.
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' # Use a specific Python version
+
+    # Step 3: Install dependencies
+    # This runs the 'pip install' command using the requirements file we created.
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r backend/requirements.txt
+
+    # Step 4: Run the unit tests
+    # This is the most important step. It runs pytest on our test file.
+    # If any test fails, the entire workflow will fail.
+    - name: Run tests with pytest
+      run: |
+        cd backend
+        pytest
